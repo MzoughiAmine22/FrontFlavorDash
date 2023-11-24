@@ -1,1 +1,70 @@
-<p>recipe-details works!</p>
+<!-- ##### Breadcumb Area End ##### -->
+
+<div class="receipe-post-area section-padding-200">
+  <div
+    class="breadcumb-area bg-img bg-overlay"
+    style="background-image: url({{ recipe['image'] }});
+     margin-top: 120px;"
+  >
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <div class="breadcumb-text text-center">
+            <h2>{{ recipe.name }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Receipe Content Area -->
+  <div class="receipe-content-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-8">
+          <div class="receipe-headline my-5">
+            <h2>{{ recipe.name }}</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-lg-8">
+          <!-- Single Preparation Step -->
+          <div
+            class="single-preparation-step d-flex"
+            *ngFor="let instruction of recipe.instructions"
+          >
+            <h4>{{ instruction.step }}.</h4>
+            <p>
+              {{ instruction.description }}
+            </p>
+          </div>
+          <!-- Single Preparation Step -->
+        </div>
+
+        <!-- Ingredients -->
+        <div class="col-12 col-lg-4">
+          <div class="ingredients">
+            <h4>Ingredients</h4>
+
+            <!-- Custom Checkbox -->
+            <div class="" *ngFor="let ingredient of recipe.ingredients">
+              <label class="textforingr" for="customCheck1">
+                <img
+                  [src]="ingredient.ingredient.image"
+                  alt=""
+                  class="ingredient-image"
+                />
+                <!-- Add this line -->
+                {{ ingredient.ingredient.name }}
+              </label>
+              <br />
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,24 +9,33 @@ import { RecipesComponent } from './Components/recipes/recipes.component';
 import { ShoppingListComponent } from './Components/shopping-list/shopping-list.component';
 import { LogInComponent } from './Components/log-in/log-in.component';
 import { SignUpComponent } from './Components/sign-up/sign-up.component';
+import { RecipeDetailsComponent } from './Components/recipe-details/recipe-details.component';
 
 const routes: Routes = [
-  {path:'home',component:HomeComponent,children:[
-    {path:'landing',component:LandingComponent},
-    {path:'about',component:AboutComponent},
-    {path:'cooklist',component:CookListComponent},
-    {path:'recipes',component:RecipesComponent},
-    {path:'shoppinglist',component:ShoppingListComponent},
-    {path:'',redirectTo:'landing',pathMatch:'full'},
-    {path:'**',component:ErrorComponent}
-  ]},
-  {path:'login',component:LogInComponent},
-  {path:'signup',component:SignUpComponent},
-  {path:'',redirectTo:'home',pathMatch:'full'},
+  {
+    path: 'home',
+    component: HomeComponent,
+    children: [
+      { path: 'landing', component: LandingComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'cooklist', component: CookListComponent },
+      { path: 'recipes', component: RecipesComponent },
+      {
+        path: 'recipe/:id', // Add the id parameter here
+        component: RecipeDetailsComponent,
+      },
+      { path: 'shoppinglist', component: ShoppingListComponent },
+      { path: '', redirectTo: 'landing', pathMatch: 'full' },
+      { path: '**', component: ErrorComponent },
+    ],
+  },
+  { path: 'login', component: LogInComponent },
+  { path: 'signup', component: SignUpComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class UserRoutingModule { }
+export class UserRoutingModule {}
