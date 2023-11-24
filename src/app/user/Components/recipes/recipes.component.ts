@@ -8,7 +8,7 @@ import { Recipe } from '../../Models/recipe';
   styleUrl: './recipes.component.scss'
 })
 export class RecipesComponent {
-
+  activeMealType = '';
   recipes:Recipe[]=[]
   filteredRecipes:Recipe[]=[];
   constructor(private recipeService:RecipeService){
@@ -17,11 +17,13 @@ export class RecipesComponent {
 
 
   filterRecipes(criteria:string){
-    if(criteria==="mealType=all"){
+    if(criteria==="mealType=All"){
+      this.activeMealType = criteria;
       this.filteredRecipes=this.recipes;
     }
     else{
       console.log("executing filter");
+      this.activeMealType = criteria;
       this.recipeService.getRecipeByCriteria(criteria).subscribe((recipes:Recipe[])=>{
         this.filteredRecipes=recipes;
         console.log(recipes);

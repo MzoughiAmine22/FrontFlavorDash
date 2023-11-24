@@ -7,16 +7,16 @@
       <div class="container">
         <div class="heading_container heading_center">
           <h2>
-            Our Menu
+            Our Recipes
           </h2>
         </div>
   
         <ul class="filters_menu">
-          <li (click)="filterRecipes('mealType=all') ;$event.preventDefault()" >All</li>
-          <li class="active" (click)="filterRecipes('mealType=Breakfast'); $event.preventDefault()" >Breakfast</li>
-          <li  (click)="filterRecipes('mealType=Lunch'); $event.preventDefault()">Lunch</li>
-          <li  (click)="filterRecipes('mealType=Dessert'); $event.preventDefault()" >Dessert</li>
-          <li  (click)="filterRecipes('mealType=Dinner'); $event.preventDefault()">Dinner</li>
+          <li [ngClass]="{'active': activeMealType === 'mealType=All'}" (click)="filterRecipes('mealType=All') ;$event.preventDefault()" >All</li>
+          <li [ngClass]="{'active': activeMealType === 'mealType=Breakfast'}" (click)="filterRecipes('mealType=Breakfast'); $event.preventDefault()" >Breakfast</li>
+          <li [ngClass]="{'active': activeMealType === 'mealType=Lunch'}" (click)="filterRecipes('mealType=Lunch'); $event.preventDefault()">Lunch</li>
+          <li [ngClass]="{'active': activeMealType === 'mealType=Dessert'}" (click)="filterRecipes('mealType=Dessert'); $event.preventDefault()" >Dessert</li>
+          <li [ngClass]="{'active': activeMealType === 'mealType=Dinner'}" (click)="filterRecipes('mealType=Dinner'); $event.preventDefault()">Dinner</li>
           
         </ul>
         <div class="filters-content">
