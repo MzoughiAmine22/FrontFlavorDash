@@ -15,6 +15,7 @@ import { LogInComponent } from './Components/log-in/log-in.component';
 import { SignUpComponent } from './Components/sign-up/sign-up.component';
 import { AboutComponent } from './Components/about/about.component';
 import { ErrorComponent } from './Components/error/error.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ErrorComponent } from './Components/error/error.component';
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    HttpClientModule
   ]
 })
 export class UserModule { }

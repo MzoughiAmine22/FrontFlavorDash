@@ -6,7 +6,7 @@
           <!-- Logo -->
           <div class="col-xl-2 col-lg-1 col-md-1">
             <div class="logo">
-              <a href="index.html"
+              <a routerLink="/home"
                 ><img src="assets/img/flavor_dash.png" alt=""
               /></a>
             </div>
@@ -19,9 +19,9 @@
               <div class="main-menu f-right d-none d-lg-block">
                 <nav>
                   <ul id="navigation">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="menu.html">Menu</a></li>
+                    <li><a routerLink="/home">Home</a></li>
+                    <li><a routerLink="about">About</a></li>
+                    <li><a routerLink="recipes">Recipes</a></li>
                     <li>
                       <a href="blog.html">Blog</a>
                       <ul class="submenu">
@@ -30,13 +30,14 @@
                         <li><a href="elements.html">Element</a></li>
                       </ul>
                     </li>
-                    <li><a href="contact.html">Contact</a></li>
                   </ul>
                 </nav>
               </div>
               <div class="header-right-btn f-right d-none d-lg-block ml-20">
-                <a href="contact.html" class="border-btn header-btn"
-                  >Order Online</a
+                <a routerLink="shoppinglist" class="border-btn header-btn"
+                  ><span class="material-symbols-outlined">
+                    shopping_cart
+                    </span></a
                 >
               </div>
             </div>
