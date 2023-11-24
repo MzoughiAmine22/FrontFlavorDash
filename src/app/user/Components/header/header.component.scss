@@ -5,6 +5,12 @@
   }
 }
 
+
+.activated{
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 /* CSS for medium screens */
 @media (min-width: 992px) and (max-width: 1199px) {
   .container-fluid {

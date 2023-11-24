@@ -32,7 +32,7 @@ export class RecipeService {
   }
 
   public getRecipeByCriteria(criteria:string):Observable<Recipe[]>{
-    return this.http.get<Recipe[]>(URL+"q/"+{criteria});
+    return this.http.get<Recipe[]>(URL+"q?"+criteria);
   }
 
 }

@@ -27,5 +27,6 @@ export class RecipeDetailsComponent implements OnInit {
         this.recipe = recipe;
       });
     }
+    window.scroll(0,0);
   }
 }
