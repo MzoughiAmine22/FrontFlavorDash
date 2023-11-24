@@ -1,0 +1,38 @@
+/* CSS for large screens */
+@media (min-width: 1200px) {
+  .container-fluid {
+    max-width: 1140px;
+  }
+}
+
+/* CSS for medium screens */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .container-fluid {
+    max-width: 960px;
+  }
+}
+
+/* CSS for small screens */
+@media (min-width: 768px) and (max-width: 991px) {
+  .container-fluid {
+    max-width: 720px;
+  }
+}
+
+/* CSS for extra small screens */
+@media (max-width: 767px) {
+  .container-fluid {
+    max-width: 540px;
+  }
+}
+img {
+  max-width: 80%;
+  background-repeat: no-repeat;
+}
+
+/* CSS for mobile screens */
+@media (max-width: 575px) {
+  .container-fluid {
+    max-width: 100%;
+  }
+}
