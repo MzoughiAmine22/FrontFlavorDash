@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Recipe } from '../../Models/recipe';
 import { RecipeService } from '../../Services/recipe.service';
+import { UserService } from '../../Services/user.service';
 
 @Component({
   selector: 'app-landing',
@@ -11,7 +12,7 @@ export class LandingComponent {
  
   recipes:Recipe[]=[]
   filteredRecipes:Recipe[]=[];
-  constructor(private recipeService:RecipeService){
+  constructor(private recipeService:RecipeService,private userService:UserService){
    
   }
 
@@ -32,8 +33,17 @@ export class LandingComponent {
     })
   }
 
+  logout()
+  {
+    this.userService.logout().subscribe((data:any)=>{
+      console.log(data);
+      
+    });
+  }  
   ngOnInit():void{
     this.getAllRecipes();
+
+    
 
   }
 }

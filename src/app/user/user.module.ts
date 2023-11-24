@@ -16,6 +16,7 @@ import { SignUpComponent } from './Components/sign-up/sign-up.component';
 import { AboutComponent } from './Components/about/about.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -37,7 +38,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     UserRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
   ]
 })
 export class UserModule { }

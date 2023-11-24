@@ -23,8 +23,16 @@ export class UserService {
     return this.http.post<User>(URL+'register',user);
   }
 
-  public login(email:string,password:string){
-    return this.http.post(URL+'login',{email,password});
+  public login(usercreds:any):Observable<any>{
+    return this.http.post<any>(URL+'login',usercreds,{withCredentials:true});
+  }
+
+  public logout():Observable<any>{
+    return this.http.get<any>(URL+'logout',{withCredentials:true});
+  }
+
+  public getUserCookie():Observable<any>{
+    return this.http.get<any>(URL+'cookie',{withCredentials:true});
   }
 
   public updateUser(id:string,user:User):Observable<User>{
