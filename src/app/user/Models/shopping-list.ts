@@ -8,6 +8,7 @@ export class ShoppingList {
     public ingredients: [
       {
         ingredient: Ingredient;
+        mesure: string;
       }
     ]
   ) {}
