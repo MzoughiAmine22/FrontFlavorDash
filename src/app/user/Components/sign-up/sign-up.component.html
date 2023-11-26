@@ -1,26 +1,30 @@
-<div class="form-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-offset-4 col-md-4 col-sm-offset-6 col-sm-6">
-                <div class="form-container">
-                    <h3 class="title">My Account</h3>
-                    <form class="form-horizontal">
-                        <div class="form-icon">
-                            <i class="fa fa-user-circle"></i>
-                        </div>
-                        <div class="form-group">
-                            <span class="input-icon"><i class="fa fa-user"></i></span>
-                            <input type="email" class="form-control" placeholder="Username">
-                        </div>
-                        <div class="form-group">
-                            <span class="input-icon"><i class="fa fa-lock"></i></span>
-                            <input type="password" class="form-control" placeholder="Password">
-                            <span class="forgot"><a href="">Forgot Password?</a></span>
-                        </div>
-                        <button class="btn signin">Login</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+
+<div class="login-page">
+    <div class="form">
+        <h2 style="color: #2f3d4a;">User Sign Up Page</h2>
+        <br>
+      <form [formGroup]="signForm" class="login-form" (ngSubmit)="signup()" >
+        <input type="text" formControlName="name" placeholder="fullname"/>
+        
+        <br><br>
+        <input type="number" formControlName="age" placeholder="age" min="0" max="99"/>
+        
+        
+        <br><br>
+        <input type="string" formControlName="phone" placeholder="phone" min="0" max="99"/>
+        
+        
+        <br><br>
+        <input type="email" formControlName="email" placeholder="email"/>
+        
+       
+        <br><br>
+        <input type="password" formControlName="password" placeholder="password"/>
+        
+        <br><br>
+        <input type="submit" value="Sign Up"  >
+        <br><br>
+        <p class="message">Alreay have an account? <a routerLink="/login">Log In</a></p>
+      </form>
     </div>
 </div>

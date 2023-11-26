@@ -17,6 +17,7 @@ import { AboutComponent } from './Components/about/about.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    RouterModule
   ]
 })
 export class UserModule { }

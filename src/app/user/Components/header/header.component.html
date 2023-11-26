@@ -22,12 +22,13 @@
                     <li><a routerLink="landing" routerLinkActive="activated" >Home</a></li>
                     <li><a routerLink="about" routerLinkActive="activated">About</a></li>
                     <li><a routerLink="recipes" routerLinkActive="activated">Recipes</a></li>
-                    <li>
+                    <li *ngIf="hidelogin==true" ><a routerLink="/login" routerLinkActive="activated">Login</a></li>
+                    <li *ngIf="hideprofile==true" >
                       <a href="blog.html">Profile</a>
                       <ul class="submenu">
-                        <li><a href="blog.html">Name</a></li>
+                        <li><a routerLink="">Access Profile</a></li>
                         <br><br>
-                        <li><a href="elements.html">Change password</a></li>
+                        <li><a (click)="logout()">Log Out</a></li>
                       </ul>
                     </li>
                   </ul>

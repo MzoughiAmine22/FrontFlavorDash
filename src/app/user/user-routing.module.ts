@@ -21,7 +21,7 @@ const routes: Routes = [
       { path: 'cooklist', component: CookListComponent },
       { path: 'recipes', component: RecipesComponent },
       {
-        path: 'recipe/:id', // Add the id parameter here
+        path: 'recipe/:id', 
         component: RecipeDetailsComponent,
       },
       { path: 'shoppinglist', component: ShoppingListComponent },
