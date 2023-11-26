@@ -1,1 +1,33 @@
-<p>recipe-list works!</p>
+<div class="container">
+    <br><br><br>
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex">
+            <div>
+                <h5 class="card-title">Recipes List</h5>
+            </div>
+        </div>
+        <div class="table-responsive m-t-20 no-wrap">
+            <table class="table vm no-th-brd pro-of-month">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Meal Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let recipe of recipes | slice:0:3;let i as index" >
+                        
+                        <td>
+                            <h6><img [src]="recipe.image" height="50" width="50" style="border-radius: 5px;" /></h6>
+                        <td>{{recipe.name}}</td>
+                        <td>{{recipe.mealType}}</td>
+                        <td><button class="btn">Delete</button>&nbsp; &nbsp; <button class="btn">Update</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
