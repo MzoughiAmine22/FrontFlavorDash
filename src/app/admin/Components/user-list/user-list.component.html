@@ -1,1 +1,32 @@
-<p>user-list works!</p>
+<div class="container">
+    <br><br>
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex">
+                <div>
+                    <h5 class="card-title">Users List</h5>
+                </div>
+            </div>
+            <div class="table-responsive m-t-20 no-wrap">
+                <table class="table vm no-th-brd pro-of-month">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users" >
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.phone}}</td>
+                            <td><button (click)="deleteUser(user._id)" class="btn">Delete</button></td>
+                        </tr>                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
