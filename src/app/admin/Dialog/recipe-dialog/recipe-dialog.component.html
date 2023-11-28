@@ -1,1 +1,67 @@
-<p>recipe-dialog works!</p>
+<h2 mat-dialog-title class="dialog-title">Update Recipe</h2>
+<div mat-dialog-content>
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      placeholder="Recipe Name"
+      [(ngModel)]="data.name"
+      name="recipeName"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      #ingredientInput
+      placeholder="Add Ingredient"
+      (keyup.enter)="addIngredient(ingredientInput.value)"
+    />
+  </mat-form-field>
+
+  <mat-chip-listbox>
+    <mat-chip
+      *ngFor="let ingredient of data.ingredients; let i = index"
+      class="ingredient-chip"
+    >
+      <img
+        [src]="ingredient.ingredient.image"
+        [alt]="ingredient.ingredient.name"
+        class="ingredient-image"
+      />
+      {{ ingredient.quantity }} {{ ingredient.unit }}
+      {{ ingredient.ingredient.name }}
+      <mat-icon matChipRemove (click)="removeIngredient(i)">cancel</mat-icon>
+    </mat-chip>
+  </mat-chip-listbox>
+
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      #instructionInput
+      placeholder="Add Instruction"
+      (keyup.enter)="addInstruction(instructionInput.value)"
+    />
+  </mat-form-field>
+
+  <div
+    *ngFor="let instruction of data.instructions; let i = index"
+    class="instruction"
+  >
+    <p>{{ instruction.step }}. {{ instruction.description }}</p>
+    <mat-icon (click)="removeInstruction(i)">cancel</mat-icon>
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button class="cancel-button" (click)="onCancelClick()">
+    Cancel
+  </button>
+  <button
+    mat-button
+    class="update-button"
+    [mat-dialog-close]="data"
+    cdkFocusInitial
+  >
+    Update
+  </button>
+</div>

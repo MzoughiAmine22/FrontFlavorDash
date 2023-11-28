@@ -9,7 +9,13 @@ import { RecipeListComponent } from './Components/recipe-list/recipe-list.compon
 import { HomeComponent } from './Components/home/home.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { RecipeDialogComponent } from './Dialog/recipe-dialog/recipe-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatChipsModule } from '@angular/material/chips';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -19,11 +25,18 @@ import { RecipeDialogComponent } from './Dialog/recipe-dialog/recipe-dialog.comp
     RecipeListComponent,
     HomeComponent,
     ErrorComponent,
-    RecipeDialogComponent
+    RecipeDialogComponent,
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
-  ]
+    AdminRoutingModule,
+    MatDialogModule,
+    FormsModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatChipsModule,
+    MatIconModule,
+    MatAutocompleteModule,
+  ],
 })
-export class AdminModule { }
+export class AdminModule {}

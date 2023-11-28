@@ -13,7 +13,7 @@ import { RecipeDetailsComponent } from './Components/recipe-details/recipe-detai
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomeComponent,
     children: [
       { path: 'landing', component: LandingComponent },
@@ -31,6 +31,7 @@ const routes: Routes = [
   },
   { path: 'login', component: LogInComponent },
   { path: 'signup', component: SignUpComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
