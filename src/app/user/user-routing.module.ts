@@ -13,7 +13,7 @@ import { RecipeDetailsComponent } from './Components/recipe-details/recipe-detai
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: HomeComponent,
     children: [
       { path: 'landing', component: LandingComponent },
@@ -21,7 +21,7 @@ const routes: Routes = [
       { path: 'cooklist', component: CookListComponent },
       { path: 'recipes', component: RecipesComponent },
       {
-        path: 'recipe/:id', 
+        path: 'recipe/:id',
         component: RecipeDetailsComponent,
       },
       { path: 'shoppinglist', component: ShoppingListComponent },
@@ -31,7 +31,6 @@ const routes: Routes = [
   },
   { path: 'login', component: LogInComponent },
   { path: 'signup', component: SignUpComponent },
-  { path: '', redirectTo: 'admin', pathMatch: 'full' },
 ];
 
 @NgModule({

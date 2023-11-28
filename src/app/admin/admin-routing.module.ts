@@ -8,20 +8,23 @@ import { RecipeListComponent } from './Components/recipe-list/recipe-list.compon
 import { LogInComponent } from './Components/log-in/log-in.component';
 
 const routes: Routes = [
-  {path:'admin',component:HomeComponent,children:[
-    {path:'dashboard',component:DashboardComponent},
-    {path:'userlist',component:UserListComponent},
-    {path:'recipelist',component:RecipeListComponent},
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    { path: '**', component: ErrorComponent },
-    
-  ]},
-  {path:'adminlogin',component:LogInComponent},
+  {
+    path: 'admin',
+    component: HomeComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'userlist', component: UserListComponent },
+      { path: 'recipelist', component: RecipeListComponent },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: '**', component: ErrorComponent },
+    ],
+  },
+  { path: 'adminlogin', component: LogInComponent },
   { path: '', redirectTo: 'admin', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}
