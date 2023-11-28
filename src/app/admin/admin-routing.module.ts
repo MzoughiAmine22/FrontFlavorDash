@@ -12,11 +12,12 @@ const routes: Routes = [
     {path:'dashboard',component:DashboardComponent},
     {path:'userlist',component:UserListComponent},
     {path:'recipelist',component:RecipeListComponent},
-    { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: '**', component: ErrorComponent },
     
   ]},
-  {path:'adminlogin',component:LogInComponent}
+  {path:'adminlogin',component:LogInComponent},
+  { path: '', redirectTo: 'admin', pathMatch: 'full' },
 ];
 
 @NgModule({

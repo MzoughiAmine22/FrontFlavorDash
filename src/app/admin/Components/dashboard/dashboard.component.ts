@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-import { UserService } from '../../../user/Services/user.service';
-import { RecipeService } from '../../../user/Services/recipe.service';
-import { Recipe } from '../../../user/Models/recipe';
-import { User } from '../../../user/Models/user';
 
 @Component({
   selector: 'app-dashboard',

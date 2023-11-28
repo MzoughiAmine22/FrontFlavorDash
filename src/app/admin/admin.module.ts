@@ -8,6 +8,7 @@ import { UserListComponent } from './Components/user-list/user-list.component';
 import { RecipeListComponent } from './Components/recipe-list/recipe-list.component';
 import { HomeComponent } from './Components/home/home.component';
 import { ErrorComponent } from './Components/error/error.component';
+import { RecipeDialogComponent } from './Dialog/recipe-dialog/recipe-dialog.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ErrorComponent } from './Components/error/error.component';
     UserListComponent,
     RecipeListComponent,
     HomeComponent,
-    ErrorComponent
+    ErrorComponent,
+    RecipeDialogComponent
   ],
   imports: [
     CommonModule,
