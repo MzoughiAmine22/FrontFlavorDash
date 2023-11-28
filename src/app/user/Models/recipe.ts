@@ -9,8 +9,7 @@ export class Recipe {
     public ingredients: [
       {
         ingredient: Ingredient;
-        quantity: number;
-        unit: string;
+        mesure:string
       }
     ],
     public instructions: [

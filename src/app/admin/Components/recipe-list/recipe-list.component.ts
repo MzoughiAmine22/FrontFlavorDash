@@ -21,16 +21,31 @@ export class RecipeListComponent {
     });
   }
 
-  openUpdateDialog(recipe: Recipe): void {
+  openAddDialog():void{
     const dialogRef = this.dialog.open(RecipeDialogComponent, {
-      width: '400px',
-      data: { ...recipe }, // Pass a copy of the recipe data to avoid modifying the original
+      width: '50%',
+      height: '80%',
     });
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result==='save')
+      {
+        this.getAllRecipes();
 
-    dialogRef.afterClosed().subscribe((updatedRecipe) => {
-      if (updatedRecipe) {
-        // Handle the updated recipe data here (e.g., send it to a service for updating)
-        // updatedRecipe will contain the modified data
+      }
+    });
+  }
+
+  openUpdateDialog(recipe: any): void {
+    const dialogRef = this.dialog.open(RecipeDialogComponent, {
+      width: '50%',
+      height: '80%',
+      data: recipe, // Pass a copy of the recipe data to avoid modifying the original
+    })
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result==='update')
+      {
+        this.getAllRecipes();
+
       }
     });
   }

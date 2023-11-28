@@ -22,3 +22,6 @@ body {
 @import "@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 // Add any other global styles you need
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
