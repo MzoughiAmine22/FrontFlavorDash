@@ -3,10 +3,11 @@
   <div class="card">
     <div class="card-body">
       <div class="d-flex">
-        <button (click)="openAddDialog()" >add</button>
+        
         <div>
           <h5 class="card-title">Recipes List</h5>
         </div>
+        <button (click)="openAddDialog()" style="margin-left: 80%;border-radius: 10px;" class="btn btn-primary"  >Add Recipe</button>
       </div>
       <div class="table-responsive m-t-20 no-wrap">
         <table class="table vm no-th-brd pro-of-month">
@@ -15,7 +16,7 @@
               <th>Image</th>
               <th>Name</th>
               <th>Meal Type</th>
-              <td>Actions</td>
+              <td><b style="color: black; font-weight: 500;">Actions</b></td>
             </tr>
           </thead>
           <tbody>
@@ -31,10 +32,10 @@
               <td>{{ recipe.name }}</td>
               <td>{{ recipe.mealType }}</td>
               <td>
-                <button class="btn" (click)="deleteRecipe(recipe._id)">
+                <button class="btn btn-danger" style="border-radius: 10px;" (click)="deleteRecipe(recipe._id)">
                   Delete</button
                 >&nbsp;&nbsp;
-                <button (click)="openUpdateDialog(recipe)" class="btn">
+                <button (click)="openUpdateDialog(recipe)" style="border-radius: 10px;" class="btn btn-primary">
                   Update
                 </button>
               </td>

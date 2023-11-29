@@ -1,1 +1,17 @@
-<p>log-in works!</p>
+<div class="login-page">
+    <div class="form">
+        <h2 style="color: #2f3d4a;">User Login Page</h2>
+        <br>
+      <form [formGroup]="loginForm" class="login-form" >
+        <input type="email" formControlName="email" placeholder="email"/>
+       
+        <br><br>
+        <input type="password" formControlName="password" placeholder="password"/>
+    
+        <br><br>
+        <button  (click)="login()">login</button>
+        <br><br>
+        <p class="message">New User? <a routerLink="/signup">Sign Up</a></p>
+      </form>
+    </div>
+</div>

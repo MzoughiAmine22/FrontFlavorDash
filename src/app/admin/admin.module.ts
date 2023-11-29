@@ -20,6 +20,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatButtonModule,
     MatRadioModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule,
+    RouterModule
     
   ],
 })

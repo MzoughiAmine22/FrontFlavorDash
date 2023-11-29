@@ -25,3 +25,14 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.error.mat-snack-bar-container {
+  background: #f44336;
+  text-align: center;
+  color: white;
+}
+.success.mat-snack-bar-container {
+    background: black;
+    color: white;
+    text-align: center;
+  }

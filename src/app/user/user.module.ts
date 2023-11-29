@@ -18,6 +18,7 @@ import { ErrorComponent } from './Components/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    MatSnackBarModule
   ]
 })
 export class UserModule { }
