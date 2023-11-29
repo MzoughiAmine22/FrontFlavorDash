@@ -22,6 +22,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ConfirmationDialogComponent } from './Dialog/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { RouterModule } from '@angular/router';
     HomeComponent,
     ErrorComponent,
     RecipeDialogComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     CommonModule,

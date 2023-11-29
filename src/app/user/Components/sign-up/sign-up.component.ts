@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../Services/user.service';
 import { Router } from '@angular/router';
 import { error } from 'console';
@@ -25,16 +25,35 @@ constructor(private userService:UserService,private snackService:SnackbarService
 
     })
   }
+  get email()
+  {
+    return this.signForm.get('email');
+  }
+  get password()
+  {
+    return this.signForm.get('password');
+  }
 
-
+  get phone()
+  {
+    return this.signForm.get('phone');
+  }
+  get name()
+  {
+    return this.signForm.get('name');
+  }
+  get age()
+  {
+    return this.signForm.get('age');
+  }
   
 ngOnInit():void{
   this.signForm=this.fb.group({
-    email:[''],
-    password:[''],
-    name:[''],
-    phone:[],
-    age:[]
+    email:['',[Validators.required,Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}')]],
+    password:['',Validators.required,Validators.minLength(8)],
+    name:['',Validators.required],
+    phone:['',[Validators.required,Validators.pattern(/^\d{2}-\d{3}-\d{3}$/)]],
+    age:['',[Validators.required,Validators.min(13)]]
   })
 }
 

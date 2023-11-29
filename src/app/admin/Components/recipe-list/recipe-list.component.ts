@@ -3,6 +3,8 @@ import { Recipe } from '../../../user/Models/recipe';
 import { RecipeService } from '../../../user/Services/recipe.service';
 import { RecipeDialogComponent } from '../../Dialog/recipe-dialog/recipe-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { SnackbarService } from '../../../user/Services/snackbar.service';
+import { ConfirmationDialogComponent } from '../../Dialog/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-recipe-list',
@@ -10,7 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrl: './recipe-list.component.scss',
 })
 export class RecipeListComponent {
-  constructor(private recipeService: RecipeService, public dialog: MatDialog) {}
+  constructor(private recipeService: RecipeService, public dialog: MatDialog,private snackBar:SnackbarService) {}
 
   recipes: Recipe[] = [];
 
@@ -46,9 +48,24 @@ export class RecipeListComponent {
   }
 
   deleteRecipe(id: string) {
-    this.recipeService.deleteRecipe(id).subscribe((data: any) => {
-      this.getAllRecipes();
-    });
+    const dialogRef=this.dialog.open(ConfirmationDialogComponent,{width:"400px",height:"auto"});
+    dialogRef.afterClosed().subscribe((accept)=>{
+      if(!accept)
+      {
+        return false;
+      }
+      else
+      {
+        this.recipeService.deleteRecipe(id).subscribe((data:any)=>{
+          console.log(data);
+          this.snackBar.snackbarnotification("Recipe Deleted Successfully","Dismiss",'success');
+          this.getAllRecipes();
+        })
+        return true;
+      }
+    },(error=>{
+      this.snackBar.snackbarnotification("Something Went Wrong","Dismiss",'error');
+    }))
   }
 
   ngOnInit(): void {

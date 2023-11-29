@@ -5,24 +5,27 @@
         <br>
       <form [formGroup]="signForm" class="login-form" (ngSubmit)="signup()" >
         <input type="text" formControlName="name" placeholder="fullname"/>
-        
+        <div *ngIf="name?.errors?.['required'] && name?.dirty" class="alert alert-danger">Name is Required<br><br></div>  
+
         <br><br>
         <input type="number" formControlName="age" placeholder="age" min="0" max="99"/>
-        
+        <div *ngIf="age?.errors?.['required'] && age?.dirty" class="alert alert-danger">Age is Required<br><br></div>  
+
         
         <br><br>
         <input type="string" formControlName="phone" placeholder="phone" min="0" max="99"/>
-        
+        <div *ngIf="phone?.errors?.['pattern'] && phone?.dirty" class="alert alert-danger">Format : XX-XXX-XXX<br><br></div>  
+
         
         <br><br>
         <input type="email" formControlName="email" placeholder="email"/>
-        
-       
+        <div *ngIf="email?.errors?.['pattern'] && email?.dirty" class="alert alert-danger">Proper Email Adress Required<br><br></div>  
         <br><br>
         <input type="password" formControlName="password" placeholder="password"/>
-        
+        <div *ngIf="password?.errors?.['minLength'] && password?.dirty" class="alert alert-danger">Min Length 8<br><br></div>  
+
         <br><br>
-        <input type="submit" value="Sign Up"  >
+        <input type="submit" value="Sign Up" [disabled]="signForm.invalid"  >
         <br><br>
         <p class="message">Alreay have an account? <a routerLink="/login">Log In</a></p>
       </form>
