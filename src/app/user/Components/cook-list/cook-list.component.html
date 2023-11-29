@@ -1,1 +1,56 @@
-<p>cook-list works!</p>
+<div class="about-low-area section-padding30">
+  <div class="container">
+    <div class="container">
+      <br /><br />
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex">
+            <div>
+              <h5 class="card-title">Cook List</h5>
+            </div>
+          </div>
+          <div class="table-responsive m-t-20 no-wrap">
+            <table class="table vm no-th-brd pro-of-month">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>Meal Type</th>
+                  <td>Actions</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let recipe of recipes">
+                  <td>
+                    <img
+                      [src]="recipe.image"
+                      width="50"
+                      height="50"
+                      style="border-radius: 5px"
+                    />
+                  </td>
+                  <td>{{ recipe.name }}</td>
+                  <td>{{ recipe.mealType }}</td>
+                  <td>
+                    <button
+                      class="btn"
+                      (click)="deleteRecipeFromCook(recipe._id)"
+                    >
+                      Delete</button
+                    >&nbsp;&nbsp;
+                    <button
+                      class="btn"
+                      [routerLink]="['/home/recipe/', recipe._id]"
+                    >
+                      Details
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

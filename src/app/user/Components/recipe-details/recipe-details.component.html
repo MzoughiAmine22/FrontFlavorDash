@@ -26,6 +26,16 @@
             <h2>{{ recipe.name }}</h2>
           </div>
         </div>
+        <div class="col-12 col-md-4 my-5">
+          <button
+            (click)="addToCookList(recipe._id)"
+            class="btn"
+            style="display: flex; align-items: center; justify-content: center"
+          >
+            <span class="material-symbols-outlined"> stockpot </span>
+            <span>Add to CookList</span>
+          </button>
+        </div>
       </div>
 
       <div class="row">

@@ -25,12 +25,9 @@ export class ShoppingListService {
     return this.http.get<ShoppingList>(`${this.url}/${id}`, { headers });
   }
 
-  getShoppingListByUserId(
-    token: string,
-    userId: string
-  ): Observable<ShoppingList> {
+  getShoppingListByUser(token: string): Observable<ShoppingList> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get<ShoppingList>(`${this.url}/user/${userId}`, {
+    return this.http.get<ShoppingList>(`${this.url}/user`, {
       headers,
     });
   }
@@ -51,14 +48,14 @@ export class ShoppingListService {
 
   deleteIngredientFromShoppingList(
     token: string,
-    userId: string,
-    ingredientId: string,
-    quantity: number
+    ingredientId: string
   ): Observable<ShoppingList> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.delete<ShoppingList>(
-      `${this.url}/${userId}/${ingredientId}/${quantity}`,
-      { headers }
+      `${this.url}/deleteIngredient/${ingredientId}`,
+      {
+        headers,
+      }
     );
   }
 }
