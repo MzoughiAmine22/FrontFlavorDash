@@ -16,21 +16,18 @@ export class RecipeListComponent {
 
   getAllRecipes() {
     this.recipeService.getAllRecipes().subscribe((data: any) => {
-      console.log(data);
       this.recipes = data;
     });
   }
 
-  openAddDialog():void{
+  openAddDialog(): void {
     const dialogRef = this.dialog.open(RecipeDialogComponent, {
       width: '50%',
       height: '80%',
     });
-    dialogRef.afterClosed().subscribe(result=>{
-      if(result==='save')
-      {
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'save') {
         this.getAllRecipes();
-
       }
     });
   }
@@ -40,19 +37,16 @@ export class RecipeListComponent {
       width: '50%',
       height: '80%',
       data: recipe, // Pass a copy of the recipe data to avoid modifying the original
-    })
-    dialogRef.afterClosed().subscribe(result=>{
-      if(result==='update')
-      {
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'update') {
         this.getAllRecipes();
-
       }
     });
   }
 
   deleteRecipe(id: string) {
     this.recipeService.deleteRecipe(id).subscribe((data: any) => {
-      console.log(data);
       this.getAllRecipes();
     });
   }

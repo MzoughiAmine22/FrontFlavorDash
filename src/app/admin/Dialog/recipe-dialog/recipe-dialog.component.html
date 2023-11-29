@@ -1,74 +1,154 @@
 <div>
-  <h1 mat-dialog-title style="text-align: center;color:#f4511e">{{message| uppercase}} A Recipe</h1>
-  <br><br>
-  <div mat-dialog-content >
-  <form [formGroup]="recipeForm">
+  <h1 mat-dialog-title style="text-align: center; color: #f4511e">
+    {{ message | uppercase }} A Recipe
+  </h1>
+  <br /><br />
+  <div mat-dialog-content>
+    <form [formGroup]="recipeForm">
+      <!-- Recipe name -->
       <mat-form-field appearance="outline">
-          <mat-label>Recipe name</mat-label>
-          <input formControlName="name" matInput placeholder="...">
+        <mat-label>Recipe name</mat-label>
+        <input formControlName="name" matInput placeholder="..." />
       </mat-form-field>
-      <br><br>
+      <br /><br />
 
-      
-    <mat-form-field appearance="outline">
-      <mat-label>Ingredients</mat-label>
-      <input type="text" matInput [formControl]="ingredient" [matAutocomplete]="auto">
-      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="addOption($event)">
-        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-          <img width="5%" height="5%" style="border-radius: 5px;" [src]="option.image" alt=""> {{option.name}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
-    
+      <!-- Image URL -->
+      <mat-form-field appearance="outline">
+        <mat-label>Image URL</mat-label>
+        <input formControlName="image" matInput placeholder="..." />
+      </mat-form-field>
+      <br /><br />
 
-    <div *ngFor="let option of selectedOptions; let i = index" style="display: flex; align-items: center;">
-      <img width="30px" height="30px" style="border-radius: 5px;" [src]="option.ingredient.image" alt=""> {{option.ingredient.name}}
-      <form [formGroup]="ingredientForm" style="margin-left: 10px;">
-        <mat-form-field appearance="fill" >
-          <mat-label>Measure</mat-label>
-          <input formControlName="measure" matInput placeholder="..." [(ngModel)]="selectedOptions[i].measure">
+      <!-- Ingredients -->
+      <div formArrayName="ingredients">
+        <mat-form-field appearance="outline">
+          <mat-label>Ingredients</mat-label>
+          <input
+            type="text"
+            matInput
+            [formControl]="ingredient"
+            [matAutocomplete]="auto"
+          />
+          <mat-autocomplete
+            #auto="matAutocomplete"
+            [displayWith]="displayFn"
+            (optionSelected)="addOption($event)"
+          >
+            <mat-option
+              *ngFor="let option of filteredOptions | async"
+              [value]="option"
+            >
+              <img
+                style="width: 30px; height: 30px; border-radius: 5px"
+                [src]="option.image"
+                alt=""
+              />
+              {{ option.name }}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
-      </form>
-    </div>
-    <br><br>
-      <mat-form-field appearance="outline">
-          <mat-label>Meal Type</mat-label>
-          <mat-select formControlName="category">
-              <mat-option value="Game">Breakfast</mat-option>
-              <mat-option value="Console">Lunch</mat-option>
-              <mat-option value="Console">Dinner</mat-option>
-          </mat-select>
-      </mat-form-field>
-      <br>
-      <br>
 
+        <div
+          *ngFor="let ingredient of ingredients().controls; index as i"
+          [formGroupName]="i"
+        >
+          <div style="display: flex; align-items: center">
+            <img
+              style="width: 30px; height: 30px; border-radius: 5px"
+              [src]="ingredient.get('ingredient')!.value!.image"
+              alt=""
+            />
+            {{ ingredient.get("ingredient")!.value!.name }}
+          </div>
+          <br />
+          <div style="display: flex; align-items: center">
+            <mat-form-field appearance="outline">
+              <mat-label>Mesure</mat-label>
+              <input formControlName="mesure" matInput placeholder="..." />
+            </mat-form-field>
+            <button
+              mat-button
+              (click)="removeIngredient(i)"
+              style="margin-left: 10px"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+      <br /><br />
 
+      <!-- Meal Type -->
       <mat-form-field appearance="outline">
-        <mat-label>Instructions</mat-label>
-        <mat-select formControlName="category">
-          <mat-option *ngFor="let number of numbers" [value]="number">
-            <span (click)="addStep($event, number)">{{number}}</span>
-          </mat-option>
+        <mat-label>Meal Type</mat-label>
+        <mat-select formControlName="mealType">
+          <mat-option value="Breakfast">Breakfast</mat-option>
+          <mat-option value="Lunch">Lunch</mat-option>
+          <mat-option value="Dinner">Dinner</mat-option>
+          <mat-option value="Snack">Snack</mat-option>
+          <mat-option value="Dessert">Dessert</mat-option>
+          <mat-option value="Vegetarian">Vegetarian</mat-option>
+          <mat-option value="Miscellaneous">Miscellaneous</mat-option>
+          <mat-option value="Seafood">Seafood</mat-option>
         </mat-select>
       </mat-form-field>
-      
-      <div *ngFor="let item of selectedNumbers; let i = index">
-        <mat-form-field appearance="outline">
-          <mat-label>Step {{item.number}} Description</mat-label>
-          <input matInput [(ngModel)]="selectedNumbers[i].description">
-        </mat-form-field>
-      </div>
-      <br>
+      <br /><br />
 
-      <mat-form-field appearance="outline">
-          <mat-label>Product Description</mat-label>
-          <textarea formControlName="description" matInput></textarea>
-      </mat-form-field>
-      <br>
-  </form>
-  <div mat-dialog-actions [align]="'end'">
-      <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-      <button mat-raised-button color="success" (click)="addRecipe()">{{buttonAction}}</button>
+      <!-- Instructions -->
+      <div formArrayName="instructions">
+        <mat-form-field appearance="outline">
+          <mat-label>Instructions</mat-label>
+          <input
+            type="text"
+            matInput
+            [formControl]="instruction"
+            [matAutocomplete]="autoInstruction"
+          />
+          <mat-autocomplete
+            #autoInstruction="matAutocomplete"
+            (optionSelected)="addStep($event)"
+          >
+            <mat-option *ngFor="let number of numbers" [value]="number">
+              {{ number }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <div
+          *ngFor="let instruction of getInstructions().controls; index as i"
+          [formGroupName]="i"
+        >
+          <span>Step {{ instruction.get("step")!.value }}</span>
+          <br />
+          <br />
+          <div style="display: flex; align-items: center">
+            <mat-form-field appearance="outline">
+              <mat-label>Description</mat-label>
+              <textarea
+                formControlName="description"
+                matInput
+                placeholder="..."
+              ></textarea>
+            </mat-form-field>
+            <button
+              mat-button
+              (click)="removeInstruction(i)"
+              style="margin-left: 10px"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+
+      <!-- Dialog actions -->
+      <div mat-dialog-actions [align]="'end'">
+        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+        <button mat-raised-button color="success" (click)="addRecipe()">
+          {{ buttonAction }}
+        </button>
+      </div>
+    </form>
   </div>
-  </div>
-  </div>
+</div>
