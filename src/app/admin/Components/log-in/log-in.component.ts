@@ -10,9 +10,12 @@ import { Router } from '@angular/router';
   styleUrl: './log-in.component.scss'
 })
 export class LogInComponent {
-  constructor(private adminService:AdminService,private snackService:SnackbarService,private fb:FormBuilder,private router:Router) {}  
+  constructor(private adminService:AdminService,private snackService:SnackbarService,private fb:FormBuilder,private router:Router) {
+    
+  }  
 
   loginForm!:FormGroup;
+
   login(){
     this.adminService.login(this.loginForm.value).subscribe((data:any)=>{
       try{
@@ -36,16 +39,21 @@ export class LogInComponent {
   }
   logout(){
     this.adminService.logout().subscribe((data:any)=>{
+      
       console.log("log out successfull");
       
     });
   }
   ngOnInit():void{
+
+    this.logout();
+
     this.loginForm=this.fb.group({
       email:[''],
       password:['']
     })
-    this.logout();
+    
+    
     
   }
 }

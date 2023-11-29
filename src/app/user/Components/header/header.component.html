@@ -7,7 +7,7 @@
           <div class="col-xl-2 col-lg-1 col-md-1">
             <div class="logo">
               <a routerLink="/home"
-                ><img src="assets/img/flavor_dash.png" alt=""
+                ><img src="assets/img/flavor_dash.png" height="100" alt=""
               /></a>
             </div>
           </div>
@@ -19,17 +19,38 @@
               <div class="main-menu f-right d-none d-lg-block">
                 <nav>
                   <ul id="navigation">
-                    <li><a routerLink="landing" routerLinkActive="activated" >Home</a></li>
-                    <li><a routerLink="about" routerLinkActive="activated">About</a></li>
-                    <li><a routerLink="recipes" routerLinkActive="activated">Recipes</a></li>
-                    <li *ngIf="hidelogin==true" ><a routerLink="/login" routerLinkActive="activated">Login</a></li>
-                    <li *ngIf="hideprofile==true" >
-                      <a href="blog.html">Profile</a>
+                    <li>
+                      <a routerLink="landing" routerLinkActive="activated"
+                        >Home</a
+                      >
+                    </li>
+                    <li>
+                      <a routerLink="about" routerLinkActive="activated"
+                        >About</a
+                      >
+                    </li>
+                    <li>
+                      <a routerLink="recipes" routerLinkActive="activated"
+                        >Recipes</a
+                      >
+                    </li>
+                    <li *ngIf="hidelogin == true">
+                      <a routerLink="/login" routerLinkActive="activated"
+                        >Login</a
+                      >
+                    </li>
+                    <li *ngIf="hideprofile == true">
+                      <a >Profile</a>
                       <ul class="submenu">
                         <li><a routerLink="">Access Profile</a></li>
-                        <br><br>
+                        <br /><br />
                         <li><a (click)="logout()">Log Out</a></li>
                       </ul>
+                    </li>
+                    <li>
+                      <a routerLink="cooklist" routerLinkActive="activated"
+                        >CookList</a
+                      >
                     </li>
                   </ul>
                 </nav>
@@ -38,7 +59,7 @@
                 <a routerLink="shoppinglist" class="border-btn header-btn"
                   ><span class="material-symbols-outlined">
                     shopping_cart
-                    </span></a
+                  </span></a
                 >
               </div>
             </div>

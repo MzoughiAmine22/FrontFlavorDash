@@ -22,14 +22,12 @@ export class LogInComponent {
           console.log("got cookie"+data);
           this.router.navigate(['/home']);
           this.snackService.snackbarnotification(`Welcome ${data.user.name}`,"Dismiss",'success');
-
         })
       }
       catch(error){
-
         console.log(error);
+        this.router.navigate(['/home']);
         this.snackService.snackbarnotification("Something Went Wrong","Dismiss",'error');
-
       }
     },
     (error)=>{

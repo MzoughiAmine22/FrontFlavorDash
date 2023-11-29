@@ -1,1 +1,112 @@
-<p>shopping-list works!</p>
+<br /><br /><br /><br /><br /><br />
+<div
+  class="card-body p-4"
+  style="height: calc(100vh - 200px); overflow-y: auto"
+>
+  <div class="h-100 h-custom">
+    <div class="container-fluid py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <div class="card">
+            <div class="card-body p-4">
+              <div class="row">
+                <div class="col-lg-7">
+                  <h5 class="mb-3">
+                    <a routerLink="/recipes" class="text-body">
+                      <i class="fas fa-long-arrow-alt-left me-2"></i>Continue
+                      Browsing Recipes
+                    </a>
+                  </h5>
+                  <hr />
+
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-4"
+                  >
+                    <div>
+                      <p class="mb-1">Shopping cart</p>
+                      <p class="mb-0">
+                        You have {{ ingredients.length }} items in your cart
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- The existing HTML code remains unchanged -->
+
+                <div
+                  class="card mb-3"
+                  *ngFor="let ingredient of ingredients; let i = index"
+                >
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            [src]="ingredient.ingredient.image"
+                            class="img rounded-3"
+                            alt="{{ ingredient.ingredient.name }}"
+                            style="width: 10rem"
+                          />
+                        </div>
+                        <div class="ms-3">
+                          <h4 style="font-size: 2rem">
+                            {{ ingredient.ingredient.name | titlecase }}
+                          </h4>
+                          <p class="large mb-0">{{ ingredient.mesure }}</p>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <div style="width: 50px">
+                          <!-- Add any additional information or actions here -->
+                        </div>
+                        <div style="width: 80px">
+                          <!-- Add any additional information or actions here -->
+                        </div>
+                        <a
+                          (click)="deleteIngredient(ingredient.ingredient._id)"
+                          style="color: red; cursor: pointer; font-size: 1.5em"
+                        >
+                          <i class="delete fas fa-trash-alt"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- The rest of your existing HTML code remains unchanged -->
+              </div>
+
+              <div class="row" *ngIf="ingredients.length == 0">
+                <div class="col-md-12">
+                  <div class="card-body cart">
+                    <div class="col-sm-12 empty-cart-cls text-center">
+                      <img
+                        src="https://assets.materialup.com/uploads/16e7d0ed-140b-4f86-9b7e-d9d1c04edb2b/preview.png"
+                        width="300"
+                        height="300"
+                        class="img-fluid mb-4 mr-3"
+                      />
+                      <h3>
+                        <strong
+                          >{{ username | titlecase }} Your Shopping List is
+                          Empty</strong
+                        >
+                      </h3>
+                      <h4>Add something to it by <3'ing a Recipe :)</h4>
+                      <a
+                        routerLink="/"
+                        class="btn btn-secondary cart-btn-transform m-3"
+                        data-abc="true"
+                        >Shop now</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

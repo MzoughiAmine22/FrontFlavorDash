@@ -15,7 +15,7 @@ export class AdminService {
   }
 
   public logout():Observable<any>{
-    return this.http.get(URL+"logout",  {withCredentials:true});
+    return this.http.get(URL+"logout",{withCredentials:true});
   }
 
   public login(admin:any):Observable<any>{
