@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CookList } from '../Models/cook-list';
 
-const URL = 'https://flavord.onrender.com/api/cooklist/';
+const URL = 'http://localhost:5000/api/cooklist/';
 @Injectable({
   providedIn: 'root',
 })

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../Models/user';
 import { Observable } from 'rxjs';
 
-const URL = 'https://flavord.onrender.com/api/users/';
+const URL = 'http://localhost:5000/api/users/';
 
 @Injectable({
   providedIn: 'root'
