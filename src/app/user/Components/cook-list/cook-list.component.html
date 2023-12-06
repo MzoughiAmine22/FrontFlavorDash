@@ -1,8 +1,11 @@
 <div class="about-low-area section-padding30">
   <div class="container">
     <div class="container">
+      <div style="text-align: center;" *ngIf="notLoggedIn">
+         <span style="color: black;"><img width="20%" height="20%" src="assets/login.png" /><br><br><br>{{ message }}<br><br><br>  <a style="font-weight: 500;color: orange; font-size: large;" routerLink="/login" >Login Now</a> </span>
+      </div>
       <br /><br />
-      <div class="card">
+      <div class="card" *ngIf="!notLoggedIn" >
         <div class="card-body">
           <div class="d-flex">
             <div>

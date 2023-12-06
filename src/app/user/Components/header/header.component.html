@@ -39,12 +39,10 @@
                         >Login</a
                       >
                     </li>
-                    <li *ngIf="hideprofile == true">
+                    <li class="yes"*ngIf="hideprofile == true">
                       <a >Profile</a>
                       <ul class="submenu">
-                        <li><a routerLink="">Access Profile</a></li>
-                        <br /><br />
-                        <li><a (click)="logout()">Log Out</a></li>
+                        <li ><a (click)="logout()">Log Out</a></li>
                       </ul>
                     </li>
                     <li>

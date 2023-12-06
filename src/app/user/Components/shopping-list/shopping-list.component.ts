@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CookListService } from '../../Services/cook-list.service';
 import { UserService } from '../../Services/user.service';
 import { ShoppingListService } from '../../Services/shopping-list.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-shopping-list',
@@ -9,6 +10,9 @@ import { ShoppingListService } from '../../Services/shopping-list.service';
   styleUrl: './shopping-list.component.scss',
 })
 export class ShoppingListComponent {
+  message:string="";
+  notLoggedIn:boolean=false;
+
   constructor(
     private shoppingService: ShoppingListService,
     private userService: UserService
@@ -37,6 +41,12 @@ export class ShoppingListComponent {
           this.ingredients = data.ingredients;
           console.log(this.ingredients);
         });
+    },(err:HttpErrorResponse)=>{
+      console.log(err);
+      console.log("salut");
+      
+      this.message="You must be logged in to access your cooklist";
+      this.notLoggedIn=true;
     });
   }
 }

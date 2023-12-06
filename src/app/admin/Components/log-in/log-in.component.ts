@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AdminService } from '../../Services/admin.service';
 import { SnackbarService } from '../../../user/Services/snackbar.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -59,8 +59,8 @@ export class LogInComponent {
     this.logout();
 
     this.loginForm=this.fb.group({
-      email:[''],
-      password:['']
+      email:['',Validators.required],
+      password:['',Validators.required]
     })
     
     

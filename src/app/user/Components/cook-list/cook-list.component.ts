@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CookListService } from '../../Services/cook-list.service';
 import { UserService } from '../../Services/user.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-cook-list',
@@ -8,6 +9,9 @@ import { UserService } from '../../Services/user.service';
   styleUrl: './cook-list.component.scss',
 })
 export class CookListComponent {
+
+  message:string="";
+  notLoggedIn:boolean=false;
   constructor(
     private cookListService: CookListService,
     private userService: UserService
@@ -15,6 +19,7 @@ export class CookListComponent {
   recipes: any;
   deleteRecipeFromCook(recId: string) {
     this.userService.getUserCookie().subscribe((data: any) => {
+      this.notLoggedIn=false;
       this.cookListService
         .deleteRecipeFromCooklist(recId, data.token)
         .subscribe((data: any) => {
@@ -32,6 +37,12 @@ export class CookListComponent {
           console.log(data);
           this.recipes = data.recipes;
         });
+    },(err:HttpErrorResponse)=>{
+      console.log(err);
+      console.log("salut");
+      
+      this.message="You must be logged in to access your cooklist";
+      this.notLoggedIn=true;
     });
   }
 }
