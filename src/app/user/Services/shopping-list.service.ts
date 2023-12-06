@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ShoppingListService {
-  private url = 'http://localhost:5000/api/shopping';
+  private url = 'https://flavord.onrender.com/api/shopping';
 
   constructor(private http: HttpClient) {}
 

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const URL = 'http://localhost:5000/api/admins/';
+const URL = 'https://flavord.onrender.com/api/admins/';
 @Injectable({
   providedIn: 'root'
 })
